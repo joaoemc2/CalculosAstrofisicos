@@ -1,1 +1,1 @@
-Toda logica está sendo criada em Java, a ideia posteriormente será criar um site onde qualquer pessoa poderá resolver algumas equações de Astrofísica de forma simples e rápida :)
+Toda logica está sendo criada em Java, a ideia posteriomente sera criar um site onde qualquer pessoa poderar resolver algumas equaçoes de Astrofica de forma simples e rapida :)
