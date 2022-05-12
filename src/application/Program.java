@@ -4,6 +4,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import entities.EfeitoDoppler;
+import entities.RedShift;
 import entities.VelocidadeDeEscape;
 public class Program {
 
@@ -12,7 +13,8 @@ public class Program {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("ESCOLHA UMA OPÇÃO ABAIXO:\n1 - Calclualar a VELOCIDADE DE ESCAPE de um objeto\n2 - Calcular o EFEITO DOPPLER");
+		System.out.println("ESCOLHA UMA OPÇÃO ABAIXO:\n1 - Calclualar a VELOCIDADE DE ESCAPE de um objeto\n2 - Calcular o EFEITO DOPPLER\n3 - Calcular distancia de uma galaxia"
+				+ " atraves do RedShift");
 		
 		
 		int option = sc.nextInt();	
@@ -55,6 +57,28 @@ public class Program {
 			
 			System.out.printf("A frequencia medida pelo observador será: f' = %.2f Hz",eDop.efeitoDopler());
 			
+			break;
+			
+		case 3:
+			//RedShift
+			RedShift red = new RedShift();
+			System.out.println("insira a linha espectral do Ca K: ");
+			red.varK = sc.nextDouble();
+			System.out.println("insira a linha espectral do Ca H: ");
+			red.varH = sc.nextDouble();
+			System.out.println("insira a linha espectral do H alpha: ");
+			red.varaH = sc.nextDouble();
+			System.out.printf("Desvio do calcium K: %.4f\n",red.desvioVermelhoCaK());
+			System.out.printf("Desvio do calcium H: %.4f\n",red.desvioVermelhoCaH());
+			System.out.printf("Desvio do H alpha: %.4f\n",red.desvioVermelhoHalpha());
+			//velocidade da galaxia
+			System.out.printf("A velocidade de distanciamento da galaxia é: %.1f m/s\n",red.velocidade());
+			//Distancia
+			System.out.printf("A galaxia esta entre %.0f e %.0f metros de distancia da Terra\n",red.distanciaPositive(),red.distanciaNegative());
+			//Anos Luz
+			System.out.printf("A galaxia esta entre %.1f e %.1f Anos Luz de distancia da Terra\n",red.distanciaALPositive(),red.distanciaALNegative());
+			//Mpc
+			System.out.printf("A galaxia esta entre %.1f e %.1f Mpc de distancia da terra",red.distanciaMpcPositive(),red.distanciaMpcNegative());
 			break;
 		}
 		
